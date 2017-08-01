@@ -271,6 +271,7 @@ public class ShapeIndicatorView extends View implements TabLayout.OnTabSelectedL
         if (mTabLayout.getSelectedTabPosition() != position)
             mTabLayout.getTabAt(position).select();
 
+
     }
 
 

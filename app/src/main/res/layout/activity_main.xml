@@ -1,47 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/CoordinatorLayout"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    tools:context="com.bb.superdemo.MainActivity">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-
-        <com.bb.superdemo.ShapeIndicatorView
-            android:id="@+id/custom_indicator"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="10dp"
-            app:fullColor="@android:color/holo_blue_dark" />
-
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/selector_list_item"
-            app:tabIndicatorColor="@color/red2"
-            app:tabIndicatorHeight="3dp"
-            app:tabSelectedTextColor="@color/red2"
-            app:tabTextColor="@color/secondary_text" />
-    </FrameLayout>
-
-    <android.support.v4.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:descendantFocusability="beforeDescendants"
-        android:fillViewport="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:orientation="vertical">
+
+
+        <com.zhy.android.percent.support.PercentFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@mipmap/find_top_tag_bac">
+
+            <com.bb.superdemo.ShapeIndicatorView
+                android:id="@+id/custom_indicator"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:fullColor="@android:color/white"
+                app:strokeWidth="2"
+                app:layout_widthPercent="90%w" />
+
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:tabSelectedTextColor="@color/red2"
+                app:tabTextColor="#ffffff"
+                app:layout_widthPercent="90%w" />
+
+        </com.zhy.android.percent.support.PercentFrameLayout>
+
 
         <android.support.v4.view.ViewPager
-            android:id="@+id/viewpager"
+            android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </android.support.v4.widget.NestedScrollView>
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </LinearLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>
